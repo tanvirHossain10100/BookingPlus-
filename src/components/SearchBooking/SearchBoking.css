@@ -1,0 +1,64 @@
+.searchBookingContainer {
+  margin-top: 20px;
+}
+.seacLocationAndDate {
+  display: flex;
+  /* justify-content: space-evenly; */
+  gap: 30px;
+  align-items: center;
+}
+.seacLocationAndDate input {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+}
+.seacLocationAndDate .searchBtn {
+  width: 100px;
+  height: 40px;
+  background-color: #124faa;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.searchBookingHeade {
+  width: 100%;
+  height: 200px;
+  border: 1px solid gray;
+  padding-top: 30px;
+  border-radius: 10px;
+}
+.searchInputDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.dateRangerParent {
+  position: relative;
+}
+
+.dateRanger {
+  width: 150%;
+  position: absolute;
+  z-index: 4;
+  top: 50px;
+  left: 0;
+}
+.dateFeildContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.dateRangerParent {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 36px;
+  width: 296px;
+  border-radius: 5px;
+  border: 2px solid gray;
+}

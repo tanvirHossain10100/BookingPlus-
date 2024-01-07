@@ -1,0 +1,13 @@
+.navBar {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border-bottom: 1px solid gray;
+  justify-content: space-around;
+  box-shadow: 0 0 0 0.5 black;
+}
+.navbarLogo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

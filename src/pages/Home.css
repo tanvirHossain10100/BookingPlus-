@@ -1,0 +1,37 @@
+.vrbo {
+  width: 100%;
+  background-color: #191e3b;
+  color: white;
+  padding-left: 200px;
+  padding-right: 30px;
+  margin: 50px 0;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px 0px black;
+}
+.vrbo ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 0 0 black;
+  /* justify-content: space-between; */
+}
+.vrbo ul span {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.vrbo img {
+  width: 50px;
+  height: 100px;
+}
+.vrboFont {
+  font-size: 1.2rem;
+}
+.vrbo button {
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  background-color: #124faa;
+  color: white;
+}
