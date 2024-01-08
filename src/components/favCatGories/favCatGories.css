@@ -1,0 +1,33 @@
+.faVthing {
+  display: flex;
+  fill: #124faa;
+  gap: 20px;
+}
+.favoIncon {
+  box-sizing: content-box;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  width: 60px;
+
+  border: 1px solid rgba(0, 0, 0, 0.685);
+  border-radius: 50%;
+}
+.favoIncon svg {
+  width: 60px;
+}
+.cabin,
+.favoIncon,
+.waterPark,
+.hot,
+.pool,
+.ocean,
+.chalet,
+.vila,
+.boat {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
-import "./Signup.css";
+import "./Login.css";
+
 import { useEffect } from "react";
-export const Signup = () => {
+export const Login = () => {
   const {
     register,
     handleSubmit,
@@ -9,12 +10,7 @@ export const Signup = () => {
     reset,
     formState: { errors, isSubmitSuccessful },
   } = useForm();
-  //   console.log(watch());
-  //   console.log(handleSubmit);
-  const onSubmit = (data) => {
-    console.log(watch("password"));
-    // console.log(data);
-  };
+  const onSubmit = (data) => {};
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset();
@@ -23,45 +19,10 @@ export const Signup = () => {
 
   return (
     <>
-      <div className="signUpFormContainer">
-        <form onSubmit={handleSubmit(onSubmit)} className="signUpContainer">
-          <h2>Signup page</h2>
+      <div className="signUpFormContainer loginContainer">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h2>Login page</h2>
           <div className="inputContainer">
-            <span className="inputParent">
-              <label>First Name</label>
-
-              <input
-                {...register("firstName", {
-                  required: true,
-                  maxLength: 20,
-                  pattern: /^[A-Za-z]+$/i,
-                })}
-              />
-              {errors?.firstName?.type === "required" && (
-                <p className="error">This field is required</p>
-              )}
-              {errors?.firstName?.type === "maxLength" && (
-                <p className="error">First name cannot exceed 20 characters</p>
-              )}
-              {errors?.firstName?.type === "pattern" && (
-                <p className="error">Alphabetical characters only</p>
-              )}
-            </span>
-            <span className="inputParent">
-              <label>Last Name</label>
-              <input
-                {...register("lastName", {
-                  required: true,
-                  pattern: /^[A-Za-z]+$/i,
-                })}
-              />
-              {errors?.lastName?.type === ("pattern" || "required") && (
-                <p className="error">Alphabetical characters only</p>
-              )}
-              {errors?.lastName?.type === "required" && (
-                <p className="error">Alphabetical characters only</p>
-              )}
-            </span>
             <span className="inputParent">
               <label>Enter your Eamil</label>
               <input
@@ -74,7 +35,7 @@ export const Signup = () => {
               {errors?.email?.type === "pattern" && (
                 <p className="error">Please type a valid email</p>
               )}
-              {errors?.firstName?.type === "required" && (
+              {errors?.email?.type === "required" && (
                 <p className="error">Please type a valid email</p>
               )}
               <label htmlFor="password">password</label>

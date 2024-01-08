@@ -1,5 +1,6 @@
 import { BannerSection } from "../components/BannerSection/BannerSection";
 import { SearchBooking } from "../components/SearchBooking/SearchBoking";
+import { FavCatGories } from "../components/favCatGories/favCatGories";
 import "./Home.css";
 export const Home = () => {
   return (
@@ -37,6 +38,9 @@ export const Home = () => {
         </div>
         <div className="bannerSectionContainer">
           <BannerSection></BannerSection>
+        </div>
+        <div className="favCatContainer">
+          <FavCatGories></FavCatGories>
         </div>
       </div>
     </>

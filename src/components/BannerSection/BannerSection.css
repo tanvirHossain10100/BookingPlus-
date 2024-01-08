@@ -9,3 +9,24 @@
   height: 400px;
   width: 100%;
 }
+.bannerInfoContainer {
+  color: white;
+  font-size: 1.4rem;
+  padding: 80px 0 0 80px;
+}
+.bannerIntro {
+  width: 400px;
+}
+.bannerInfoContainer button {
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  width: 100px;
+  transition: 0.2s;
+  background-color: #124faa;
+  &:hover {
+    background-color: #124faab9;
+  }
+}
