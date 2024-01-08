@@ -22,7 +22,7 @@
 }
 .searchBookingHeade {
   width: 100%;
-  height: 200px;
+  height: 300px;
   border: 1px solid gray;
   padding-top: 30px;
   border-radius: 10px;
@@ -56,9 +56,73 @@
 .dateRangerParent {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  height: 36px;
+  justify-content: space-between;
+  height: 40px;
   width: 296px;
   border-radius: 5px;
   border: 2px solid gray;
+}
+.traverlerInfoContainer {
+  position: relative;
+  border-radius: 5px;
+  height: 40px;
+  width: 296px;
+  border: 2px solid gray;
+}
+.traverCounterParent {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 0 7px 1px black;
+  animation-duration: 0.3s;
+  animation-name: showModal;
+  overflow: hidden;
+}
+.traverCounterParent ul {
+  animation-name: showModal;
+}
+.traverlsInputFeild {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  gap: 5px;
+}
+.traverCounterParent .doneBtn {
+  width: 100px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+  bottom: 10px;
+  transition: 0.3s ease-in;
+  border: none;
+  background-color: #124faa;
+  height: 30px;
+  color: white;
+  border-radius: 5px;
+  &:hover {
+    background-color: #124faabd;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes showModal {
+  0% {
+    height: 0;
+    width: 0;
+    display: none;
+  }
+  10% {
+    display: block;
+  }
+  100% {
+    height: 100;
+    width: 100;
+  }
 }

@@ -1,5 +1,6 @@
-import { DateRange, DateRangePicker } from "react-date-range";
+import { DateRange } from "react-date-range";
 import { FaCalendarCheck } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 
 import "react-date-range/dist/styles.css";
 
@@ -8,10 +9,17 @@ import { SearachBookingHeader } from "../SearchBookingHeader/SearchBookingHeader
 import "./SearchBoking.css";
 
 import { addDays, format } from "date-fns";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MdDateRange } from "react-icons/md";
+import { TraversNumDetails } from "../TraversNumDetails/TraversNumDetails";
 
 export const SearchBooking = () => {
+  const [totalmen, setTotalMen] = useState({
+    children: 0,
+    adults: 1,
+    rooms: 1,
+  });
+  const [showModal, setShowModal] = useState(false);
   const [dateTxt, setDateTxt] = useState("MM/dd/yyyy");
   const [dateFeild, setDateFeild] = useState(false);
   const [state, setState] = useState([
@@ -21,18 +29,8 @@ export const SearchBooking = () => {
       key: "selection",
     },
   ]);
-  console.log(dateTxt, "tdgdgf");
-  const fromDATe = format(state[0].startDate, "MM/dd/yyyy");
-  const toDate = format(state[0].endDate, "MM/dd/yyyy");
-  // console.log(fromDATe);
-  // useEffect(() => {
-  //   setDateTxt(
-  //     `${format(state[0].startDate, "MM/dd/yyyy")} to ${format(
-  //       state[0].endDate,
-  //       "MM/dd/yyyy"
-  //     )}`
-  //   );
-  // }, [state]);
+  console.log(state);
+  // console.log(dateTxt);
   return (
     <>
       <div className="searchBookingContainer">
@@ -66,24 +64,91 @@ export const SearchBooking = () => {
                     className="dateRanger"
                     editableDateInputs={true}
                     onChange={(item) => {
-                      setState([item.selection]);
-                      setDateTxt(
-                        `${format(
-                          state[0].startDate,
-                          "MM/dd/yyyy"
-                        )} to ${format(state[0].endDate, "MM/dd/yyyy")}`
-                      );
+                      setState((prevSelection) => {
+                        // Update the first state
+                        const newSelection = [item.selection];
+
+                        // Update the second state using the latest value of the first state
+                        setDateTxt(
+                          `${format(
+                            newSelection[0].startDate,
+                            "MM/dd/yyyy"
+                          )} to ${format(
+                            newSelection[0].endDate,
+                            "MM/dd/yyyy"
+                          )}`
+                        );
+
+                        // Return the new value for the first state
+                        return newSelection;
+                      });
                     }}
                     moveRangeOnFirstSelection={false}
                     ranges={state}
                     months={2}
+                    minDate={new Date()}
                     direction="horizontal"
                   />
                 )}
                 {dateFeild ? <MdDateRange></MdDateRange> : <FaCalendarCheck />}
               </li>
-              <li>
-                <input type="text" placeholder="Type your traverls" />
+              <li
+                className="traverlerInfoContainer"
+                onClick={(e) => {
+                  console.log(e);
+                  e.stopPropagation();
+                  setShowModal(!showModal);
+                }}
+              >
+                <span className="traverlsInputFeild">
+                  <span>
+                    <FaUserAlt />
+                  </span>
+                  <span>
+                    <p>Travelers</p>
+                    <p>
+                      {`${
+                        1 * totalmen.children + totalmen.adults * 1
+                      } traveler , ${totalmen.rooms} room`}
+                    </p>
+                  </span>
+                </span>
+                {showModal ? (
+                  <span
+                    className="traverCounterParent"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ul>
+                      <div>
+                        <TraversNumDetails
+                          details={{ totalmen, setTotalMen }}
+                          men={"adults"}
+                        />
+                      </div>
+                      <div>
+                        <TraversNumDetails
+                          details={{ totalmen, setTotalMen }}
+                          men={"children"}
+                        />
+                      </div>
+                      <div>
+                        <TraversNumDetails
+                          details={{ totalmen, setTotalMen }}
+                          men={"rooms"}
+                        />
+                      </div>
+
+                      <button
+                        className="doneBtn"
+                        onClick={() => setShowModal(!showModal)}
+                      >
+                        Done
+                      </button>
+                    </ul>
+                  </span>
+                ) : (
+                  ""
+                )}
               </li>
               <li>
                 <button className="searchBtn">Search</button>

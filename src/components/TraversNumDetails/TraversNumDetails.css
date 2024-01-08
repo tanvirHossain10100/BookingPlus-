@@ -1,0 +1,27 @@
+.traverLersCalculaion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+.traverLersCalculaion span {
+  text-transform: capitalize;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.traverLersCalculaion span button {
+  border: none;
+  background-color: #ffffff;
+  &:active {
+    transform: scale(0.9);
+  }
+}
+.menIdentifier {
+  width: 100px;
+}
