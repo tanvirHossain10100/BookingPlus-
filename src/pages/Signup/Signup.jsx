@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import "./Signup.css";
 import { useEffect } from "react";
+import axios from "axios";
 export const Signup = () => {
   const {
     register,
@@ -9,11 +10,25 @@ export const Signup = () => {
     reset,
     formState: { errors, isSubmitSuccessful },
   } = useForm();
-  //   console.log(watch());
-  //   console.log(handleSubmit);
-  const onSubmit = (data) => {
-    console.log(watch("password"));
-    // console.log(data);
+  const onSubmit = async (data) => {
+    const findUserByEmail = await axios.get(
+      `http://localhost:8800/api/users?email=${data.email}`
+    );
+
+    if (findUserByEmail.data.length > 0) {
+      alert("email", {
+        type: "manual",
+        message: "Email already exists",
+      });
+    } else {
+      try {
+        await axios.post("http://localhost:8800/api/users", data);
+        console.log("User registered successfully");
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    // reset();
   };
   useEffect(() => {
     if (isSubmitSuccessful) {
